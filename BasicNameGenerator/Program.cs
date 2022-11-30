@@ -14,7 +14,7 @@ namespace BasicNameGenerator
             int UserInput = 0;
             while (UserInput != 3)
             {
-                int maxGen, Counter = 0;
+                int maxGen, sleepLength, Counter = 0;
                 Console.Clear();
 
                 Console.SetCursorPosition(0, 1);
@@ -31,12 +31,16 @@ namespace BasicNameGenerator
                     Console.SetCursorPosition(5, 1);
                     Console.Write("Type the number of names to generate: ");
                     maxGen = Convert.ToInt32(Console.ReadLine());
+                    Console.SetCursorPosition(5, 2);
+                    Console.Write("Type sleep length: ");
+                    sleepLength = Convert.ToInt32(Console.ReadLine());
+
                     Console.Clear();
 
                     Console.SetCursorPosition(0, 1);
                     while (UserInput == 1 && Counter != maxGen)
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(sleepLength);
                         string randomName = NameGenerator.GenerateNameMale();
                         StreamWriter sw = new StreamWriter(maleOutput, true, Encoding.ASCII);
                         sw.WriteLine(randomName);
@@ -46,7 +50,7 @@ namespace BasicNameGenerator
                     }
                     while (UserInput == 2 && Counter != maxGen)
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(sleepLength);
                         string randomName = NameGenerator.GenerateNameFemale();
                         StreamWriter sw = new StreamWriter(femaleOutput, true, Encoding.ASCII);
                         sw.WriteLine(randomName);

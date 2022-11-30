@@ -9,9 +9,9 @@ namespace BasicNameGenerator
 {
     public class NameGenerator
     {
-        public static string[] namesMale = File.ReadAllLines(@"Data\\NamesMale.txt");
+        public static string[] namesMale =   File.ReadAllLines(@"Data\\NamesMale.txt");
         public static string[] namesFemale = File.ReadAllLines(@"Data\\NamesFemale.txt");
-        public static string[] lastNames = File.ReadAllLines(@"Data\\LastNames.txt");
+        public static string[] lastNames =   File.ReadAllLines(@"Data\\LastNames.txt");
         public static string GenerateNameMale()
         {
             var rand = new Random();

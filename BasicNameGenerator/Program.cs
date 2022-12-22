@@ -47,8 +47,8 @@ namespace BasicNameGenerator
                     StreamWriter sw = new StreamWriter(maleOutput, true, Encoding.ASCII);
                     sw.WriteLine(randomName);
                     sw.Close();
-                    Console.WriteLine("     {0}", randomName);
-                    Counter++;
+                    Console.SetCursorPosition(5, Counter); Counter++;
+                    Console.Write("{0}", randomName);
                 }
                 while (UserInput == 2 && Counter != maxGen)
                 {
@@ -57,10 +57,9 @@ namespace BasicNameGenerator
                     StreamWriter sw = new StreamWriter(femaleOutput, true, Encoding.ASCII);
                     sw.WriteLine(randomName);
                     sw.Close();
-                    Console.WriteLine("     {0}", randomName);
-                    Counter++;
+                    Console.SetCursorPosition(5, Counter); Counter++;
+                    Console.WriteLine("{0}", randomName);
                 }
-                Console.SetCursorPosition(5, maxGen+1);
                 Console.ReadKey();
             }
         }

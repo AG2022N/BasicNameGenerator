@@ -26,40 +26,42 @@ namespace BasicNameGenerator
                 UserInput = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
 
-                if (UserInput != 3)
+                if(UserInput == 3) 
                 {
-                    Console.SetCursorPosition(5, 1);
-                    Console.Write("Type the number of names to generate: ");
-                    maxGen = Convert.ToInt32(Console.ReadLine());
-                    Console.SetCursorPosition(5, 2);
-                    Console.Write("Type sleep length: ");
-                    sleepLength = Convert.ToInt32(Console.ReadLine());
+                    Environment.Exit(0);
+                }
 
-                    Console.Clear();
+                Console.SetCursorPosition(5, 1);
+                Console.Write("Type the number of names to generate: ");
+                maxGen = Convert.ToInt32(Console.ReadLine());
+                Console.SetCursorPosition(5, 2);
+                Console.Write("Type sleep length: ");
+                sleepLength = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
 
-                    Console.SetCursorPosition(0, 1);
-                    while (UserInput == 1 && Counter != maxGen)
-                    {
-                        Thread.Sleep(sleepLength);
-                        string randomName = NameGenerator.GenerateNameMale();
-                        StreamWriter sw = new StreamWriter(maleOutput, true, Encoding.ASCII);
-                        sw.WriteLine(randomName);
-                        sw.Close();
-                        Console.WriteLine("     {0}", randomName);
-                        Counter++;
-                    }
-                    while (UserInput == 2 && Counter != maxGen)
-                    {
-                        Thread.Sleep(sleepLength);
-                        string randomName = NameGenerator.GenerateNameFemale();
-                        StreamWriter sw = new StreamWriter(femaleOutput, true, Encoding.ASCII);
-                        sw.WriteLine(randomName);
-                        sw.Close();
-                        Console.WriteLine("     {0}", randomName);
-                        Counter++;
-                    }
-                    Console.ReadKey();
-                }              
+                Console.SetCursorPosition(0, 1);
+                while (UserInput == 1 && Counter != maxGen)
+                {
+                    Thread.Sleep(sleepLength);
+                    string randomName = NameGenerator.GenerateNameMale();
+                    StreamWriter sw = new StreamWriter(maleOutput, true, Encoding.ASCII);
+                    sw.WriteLine(randomName);
+                    sw.Close();
+                    Console.WriteLine("     {0}", randomName);
+                    Counter++;
+                }
+                while (UserInput == 2 && Counter != maxGen)
+                {
+                    Thread.Sleep(sleepLength);
+                    string randomName = NameGenerator.GenerateNameFemale();
+                    StreamWriter sw = new StreamWriter(femaleOutput, true, Encoding.ASCII);
+                    sw.WriteLine(randomName);
+                    sw.Close();
+                    Console.WriteLine("     {0}", randomName);
+                    Counter++;
+                }
+                Console.SetCursorPosition(5, maxGen+1);
+                Console.ReadKey();
             }
         }
     }

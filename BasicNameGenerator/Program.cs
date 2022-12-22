@@ -58,7 +58,7 @@ namespace BasicNameGenerator
                     sw.WriteLine(randomName);
                     sw.Close();
                     Console.SetCursorPosition(5, Counter); Counter++;
-                    Console.WriteLine("{0}", randomName);
+                    Console.Write("{0}", randomName);
                 }
                 Console.ReadKey();
             }
